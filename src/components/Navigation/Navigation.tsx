@@ -11,7 +11,8 @@ const Navigation = () => {
     <section className={`${styles.navHeader}`}>
       <div className={`${styles.navWrapper} flex justify-between items-center`}>
         <div className="flex items-center">
-          <VernSVG className={`${styles.logo}`} />
+          {/* <VernSVG className={`${styles.logo}`} /> */}
+          <Image src='https://surfwaves.b-cdn.net/neillydev/vern_rounded.png' alt='' width={36} height={36} />
           <h1 className={`${styles.title}`}>VERN.</h1>
         </div>
         <ul className={`${styles.navCenter}`}>
