@@ -38,6 +38,7 @@
     background: transparent;
     resize: none;
     outline: none;
+    overflow: hidden;
 }
 
 .moduleFooter {

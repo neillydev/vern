@@ -13,12 +13,32 @@
 }
 
 .heroContainer {
-    padding-top: 180px;
+    /* padding-top: 180px; */
+}
+
+.heroContainer > img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    transition: 1s cubic-bezier(.6,.6,0,1) opacity;
+    border: 0;
+    display: block;
+    -o-object-fit: cover;
+    object-fit: cover;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    aspect-ratio: auto 1 / 1;
+    user-select: none;
 }
 
 .heroWrapper {
     z-index: 1;
     margin: 0 auto;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .widget {
@@ -91,4 +111,12 @@
     max-width: 744px;
     font-size: 16px;
     font-weight: 500;
+}
+
+.heroGrid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1024px;
 }
