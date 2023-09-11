@@ -11,7 +11,7 @@
 
 .navWrapper {
     max-width: 1296px;
-    padding: 20px 0;
+    padding: 22px 0;
     margin: 0 auto;
 }
 
@@ -41,6 +41,7 @@
     font-weight: 500;
     font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
     color: white;
+    margin-left: 14px;
 }
 
 .navCenter {

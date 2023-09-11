@@ -1,5 +1,5 @@
 .heroContainer::before {
-    background: radial-gradient(37.74% 81.78% at 50% 26.56%,rgba(148,101,255,.08) 0%,rgba(3,0,20,0) 100%);
+    background: radial-gradient(37.74% 81.78% at 50% 26.56%,rgba(153, 109, 255, 0.21) 0%,rgba(3,0,20,0) 100%);
     content: "";
     display: block;
     height: 900px;
