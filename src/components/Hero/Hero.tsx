@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Module from '../Module/Module';
 
 import styles from './Hero.module.css';
@@ -6,7 +7,11 @@ import styles from './Hero.module.css';
 const Hero = () => {
   return (
     <section className={`${styles.heroContainer} relative`}>
-      <div className={`${styles.heroWrapper} relative text-center`}>
+      {/* <div className={`${styles.heroGrid}`}>
+        <Image src='https://surfwaves.b-cdn.net/neillydev/grid_7.png' alt='' width={1024} height={1024} />
+      </div> */}
+      <img src="https://surfwaves.b-cdn.net/neillydev/grid_7.png" alt="" width="1431" height="829" />
+      <div className={`${styles.heroWrapper} absolute text-center`}>
         <div className={`${styles.widget}`}>
           <div className={`${styles.widgetText}`}><span>Blog</span> ✦ Introducing VERN. AI</div>
         </div>
