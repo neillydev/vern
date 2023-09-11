@@ -8,7 +8,9 @@ const nextConfig = {
     })
 
     return config
-  }, 
+  }, images: {
+    domains: ['surfwaves.b-cdn.net'],
+  },
 }
 
 module.exports = nextConfig
