@@ -1,0 +1,23 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+.mainContainer {
+    background-color: rgb(8 6 36/1);
+}
+
+.mainWrapper {
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.mainPanelWrapper {
+    background-color: white;
+    border-radius: 4px;
+}
