@@ -24,7 +24,7 @@ enum ErrorType {
 }
 
 const AuthPage = {
-    'login': <LoginForm />,
+    'login': <LoginForm email='' />,
     'register': <RegisterForm />,
     'default': 0
 };
@@ -84,6 +84,7 @@ export const AuthForm = () => {
             const data = await response.json();
             if (data) {
                 if (data.exists) {
+                    AuthPage.login = <LoginForm email={email} />
                     setAuthStateKey('login');
                 } else {
                     setAuthStateKey('register');
