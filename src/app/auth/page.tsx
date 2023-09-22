@@ -1,9 +1,15 @@
+import { redirect } from "next/navigation";
+import { getServerSession } from 'next-auth/next';
 import { AuthForm } from '@/components/Auth/AuthForm';
+
 import styles from './Auth.module.css';
 
 
-export default function Auth() {
+export default async function Auth() {
 
+  const session = await getServerSession();
+  
+  if (session) redirect("/dashboard");
   return (
     <div className={`${styles.authContainer} fixed inset-0 text-white h-full overflow-y-auto`}>
       <div className={styles.outerContainer}>
