@@ -6,17 +6,56 @@ import Image from 'next/image';
 import styles from './NavPanel.module.css';
 
 const NavPanel = () => {
-  return (
-    <div className={`${styles.panelContainer} flex flex-col pr-8`}>
-        <a href="/" className="flex items-center px-4">
-          <Image src='https://surfwaves.b-cdn.net/neillydev/vern_rounded.png' alt='' width={36} height={36} />
-          <div className={`${styles.title}`}>VERN.</div>
-        </a>
-        <div className={`${styles.header} py-10`}>
-            Main Menu
+
+    const handleLogout = () => {
+        // delete cookie
+        // fetch logout endpoint to destroy token
+    };
+
+    return (
+        <div className={`${styles.panelContainer} flex flex-col pr-8 justify-between`}>
+            <div className={`${styles.panelWrapper}`}>
+                <a href="/" className="flex items-center px-2">
+                    <Image src='https://surfwaves.b-cdn.net/neillydev/vern_rounded.png' alt='' width={36} height={36} />
+                    <div className={`${styles.title}`}>VERN.</div>
+                </a>
+                <div className={`${styles.header} pt-8`}>
+                    Main Menu
+                </div>
+                <ul className={`${styles.navList}`}>
+                    <li className={`${styles.navItem}`}>
+
+                        <span className={`${styles.navItemTitle}`}>Home</span>
+                    </li>
+                    <li className={`${styles.navItem}`}>
+
+                        <span className={`${styles.navItemTitle}`}>Engines</span>
+                    </li>
+                    <li className={`${styles.navItem}`}>
+
+                        <span className={`${styles.navItemTitle}`}>Settings</span>
+                    </li>
+                </ul>
+            </div>
+            <div className={`${styles.profileModule} py-2 px-8`}>
+                <div className={`${styles.profileModuleHeader} flex items-center`}>
+
+                    <div className={`${styles.profileImg}`}>
+                        {/** Placeholder SVG */}
+                    </div>
+                    <div className={`${styles.profileHeaderWrapper} flex flex-col px-2`}>
+
+                        <h2 className={`${styles.profileHeader}`}>Vernon Neilly</h2>
+                        <h2 className={`${styles.profileSubheader}`}>neillydev@gmail.com</h2>
+                    </div>
+                </div>
+                <button className={`${styles.logoutBtn} ${styles.btnModule} px-10 py-2 whitespace-nowrap my-2 w-full`} onClick={handleLogout}>
+                    Log Out
+                    <div className={`${styles.btnModuleBorder}`} />
+                </button>
+            </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default NavPanel
