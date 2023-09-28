@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 import HomeSVG from '@/../public/icons/home.svg';
@@ -11,10 +11,18 @@ import styles from './NavPanel.module.css';
 
 const NavPanel = () => {
 
+    const tabs = [
+        { title: 'Home', icon: <HomeSVG />, route: '' },
+        { title: 'Engines', icon: <EngineSVG />, route: '' },
+        { title: 'Settings', icon: <SettingsSVG />,route: ''},
+    ];
+    const [selectedTabIndex, setSelectedTabIndex] = useState(0);
+
+
     const handleLogout = () => {
-        
+
         // delete cookie
-            
+
         // fetch logout endpoint to destroy token
 
 
@@ -31,18 +39,17 @@ const NavPanel = () => {
                     Main Menu
                 </div>
                 <ul className={`${styles.navList}`}>
-                    <li className={`${styles.navItem}`}>
-                        <HomeSVG />
-                        <span className={`${styles.navItemTitle}`}>Home</span>
-                    </li>
-                    <li className={`${styles.navItem}`}>
-                        <EngineSVG />
-                        <span className={`${styles.navItemTitle}`}>Engines</span>
-                    </li>
-                    <li className={`${styles.navItem}`}>
-                        <SettingsSVG />
-                        <span className={`${styles.navItemTitle}`}>Settings</span>
-                    </li>
+                    {
+                        tabs.map((tab, i) => 
+                            <li
+                            key={i}  
+                            className={`${styles.navItem} ${selectedTabIndex === i ? styles.navItemSelected : styles.navItemUnselected }`}
+                            onClick={() => setSelectedTabIndex(i)}>
+                                {tab.icon}
+                                <span className={`${styles.navItemTitle}`}>{tab.title}</span>
+                            </li>
+                        )
+                    }
                 </ul>
             </div>
             <div className={`${styles.profileModule} py-2 px-8`}>
