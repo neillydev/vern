@@ -2,9 +2,13 @@ import React from 'react';
 
 import styles from './Loading.module.css';
 
-const Loading = () => {
+type LoadingProps = {
+  color?: string;
+};
+
+const Loading = ({ color }: LoadingProps) => {
   return (
-    <span className={styles.loader}></span>
+    <span className={styles.loader} style={{ borderTop: `3px solid ${color ? color : '#fff'}` }}></span>
   );
 };
 
