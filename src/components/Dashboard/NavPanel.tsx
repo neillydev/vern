@@ -56,7 +56,7 @@ const NavPanel = ({setDashboardLoading, setDashboard}: NavPanelProps) => {
                     <div className={`${styles.title}`}>VERN.</div>
                 </a>
                 <div className={`${styles.header} pt-8`}>
-                    Main Menu
+                    Dashboard
                 </div>
                 <ul className={`${styles.navList}`}>
                     {
