@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 
 import styles from './DashModule.module.css';
 
@@ -15,6 +15,16 @@ const DashModule = ({ active, inactive, notReady }: DashModuleProps) => {
   const activePercentage = (active / total) * 100;
   const inactivePercentage = (inactive / total) * 100;
   const notReadyPercentage = (notReady / total) * 100;
+
+  const activeRef = useRef<any>(null);
+  const inactiveRef = useRef<any>(null);
+  const notReadyRef = useRef<any>(null);
+
+  useEffect(() => {
+    activeRef?.current?.style.setProperty('--target-width', `${activePercentage}%`);
+    inactiveRef?.current?.style.setProperty('--target-width', `${inactivePercentage}%`);
+    notReadyRef?.current?.style.setProperty('--target-width', `${notReadyPercentage}%`);
+  }, [activePercentage, inactivePercentage, notReadyPercentage]);
 
   return (
     <>
@@ -79,9 +89,9 @@ const DashModule = ({ active, inactive, notReady }: DashModuleProps) => {
           </div>
         </div>
         <div className={`${styles.moduleFooter}`}>
-          <span className={`${styles.statBlock} ${styles.statActive}`} style={{ width: `${activePercentage}%` }} />
-          <span className={`${styles.statBlock} ${styles.statInactive}`} style={{ width: `${inactivePercentage}%` }} />
-          <span className={`${styles.statBlock} ${styles.statNR}`} style={{ width: `${notReadyPercentage}%` }} />
+          <span className={`${styles.statBlock} ${styles.statActive}`} ref={activeRef} />
+          <span className={`${styles.statBlock} ${styles.statInactive}`} ref={inactiveRef} />
+          <span className={`${styles.statBlock} ${styles.statNR}`} ref={notReadyRef} />
         </div>
       </div>
       <div className={`${styles.moduleWrapper}`}>
