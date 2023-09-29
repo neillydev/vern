@@ -1,0 +1,98 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes growIn {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.moduleWrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f3f3;
+    border-radius: 6px;
+    width: fit-content;
+    height: fit-content;
+    padding: 16px;
+    margin: 16px 4px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    flex: 1;
+    min-height: 225px;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.moduleTitle {
+    color: #2d3141;
+    font-weight: 600;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+.moduleBody {
+    display: flex;
+
+}
+
+.moduleStat {
+    padding-right: 32px;
+}
+
+.statHeader {
+    display: flex;
+    align-items: center;
+}
+
+.statColor {
+    display: block;
+    border-radius: 3px;
+    width: 6px;
+    height: 10px;
+    margin-right: 4px;
+}
+
+.statActive {
+    background-color: #815eff;
+}
+
+.statInactive {
+    background-color: #7d69c5;
+}
+
+.statNR {
+    background-color: #2f1d70;
+}
+
+.statHeader > h3 {
+    font-size: 12px;
+    font-weight: 500;
+    color: #646464;
+}
+
+.stat {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.moduleFooter {
+    padding: 10px 0;
+    display: flex;
+}
+
+.statBlock {
+    padding: 4px 0;
+    border-radius: 8px;
+    height: 75px;
+    animation: growIn .75s ease-in 0.5s forwards;
+}
