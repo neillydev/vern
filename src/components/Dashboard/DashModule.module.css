@@ -94,5 +94,5 @@
     padding: 4px 0;
     border-radius: 8px;
     height: 75px;
-    animation: growIn .75s ease-in 0.5s forwards;
+    /* animation: growIn .75s ease-in 0.5s forwards; */
 }

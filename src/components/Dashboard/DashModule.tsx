@@ -3,8 +3,18 @@ import React from 'react';
 
 import styles from './DashModule.module.css';
 
-const DashModule = () => {
+type DashModuleProps = {
+  active: number;
+  inactive: number;
+  notReady: number;
+}
+
+const DashModule = ({ active, inactive, notReady }: DashModuleProps) => {
   
+  const total = active + inactive + notReady;
+  const activePercentage = (active / total) * 100;
+  const inactivePercentage = (inactive / total) * 100;
+  const notReadyPercentage = (notReady / total) * 100;
 
   return (
     <>
@@ -46,7 +56,7 @@ const DashModule = () => {
               <h3>Active</h3>
             </div>
             <span className={`${styles.stat}`}>
-              9
+              {active}
             </span>
           </div>
           <div className={`${styles.moduleStat}`}>
@@ -55,7 +65,7 @@ const DashModule = () => {
               <h3>Inactive</h3>
             </div>
             <span className={`${styles.stat}`}>
-              4
+              {inactive}
             </span>
           </div>
           <div className={`${styles.moduleStat}`}>
@@ -64,14 +74,14 @@ const DashModule = () => {
               <h3>Not Ready</h3>
             </div>
             <span className={`${styles.stat}`}>
-              2
+              {notReady}
             </span>
           </div>
         </div>
         <div className={`${styles.moduleFooter}`}>
-          <span className={`${styles.statBlock} ${styles.statActive}`} />
-          <span className={`${styles.statBlock} ${styles.statInactive}`} />
-          <span className={`${styles.statBlock} ${styles.statNR}`} />
+          <span className={`${styles.statBlock} ${styles.statActive}`} style={{ width: `${activePercentage}%` }} />
+          <span className={`${styles.statBlock} ${styles.statInactive}`} style={{ width: `${inactivePercentage}%` }} />
+          <span className={`${styles.statBlock} ${styles.statNR}`} style={{ width: `${notReadyPercentage}%` }} />
         </div>
       </div>
       <div className={`${styles.moduleWrapper}`}>

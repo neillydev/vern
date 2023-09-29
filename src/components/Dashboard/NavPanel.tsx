@@ -20,7 +20,7 @@ const NavPanel = ({setDashboardLoading, setDashboard}: NavPanelProps) => {
     const router = useRouter();
 
     const tabs = [
-        { title: 'Home', icon: <HomeSVG />, route: '', component: <DashModule /> },
+        { title: 'Home', icon: <HomeSVG />, route: '', component: <DashModule active={9} inactive={4} notReady={2} /> },
         { title: 'Engines', icon: <EngineSVG />, route: '/engines' },
         { title: 'Settings', icon: <SettingsSVG />, route: '', component: <></> },
     ];

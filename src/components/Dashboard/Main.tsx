@@ -10,7 +10,7 @@ import styles from './Main.module.css';
 const Main = () => {
   const [loading, setLoading] = useState(true);
   const [dashboardLoading, setDashboardLoading] = useState(true);
-  const [dashboard, setDashboard] = useState(<DashModule />);
+  const [dashboard, setDashboard] = useState(<DashModule active={9} inactive={4} notReady={2} />);
 
   useEffect(() => {
     /**
