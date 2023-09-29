@@ -20,4 +20,10 @@
 .mainPanelWrapper {
     background-color: white;
     border-radius: 2px;
+    padding: 22px 32px;
+    display: flex;
+}
+
+.loadingWrapperDash > svg {
+    border-top: 3px solid rgb(8 6 36/1);
 }

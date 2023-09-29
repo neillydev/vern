@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import DashModule from './DashModule';
 
 import HomeSVG from '@/../public/icons/home.svg';
 import EngineSVG from '@/../public/icons/engine.svg';
@@ -10,13 +11,18 @@ import SettingsSVG from '@/../public/icons/settings.svg';
 
 import styles from './NavPanel.module.css';
 
-const NavPanel = () => {
+type NavPanelProps = {
+    setDashboardLoading: React.Dispatch<React.SetStateAction<boolean>>;
+    setDashboard: React.Dispatch<React.SetStateAction<any>>;
+};
+
+const NavPanel = ({setDashboardLoading, setDashboard}: NavPanelProps) => {
     const router = useRouter();
 
     const tabs = [
-        { title: 'Home', icon: <HomeSVG />, route: '' },
+        { title: 'Home', icon: <HomeSVG />, route: '', component: <DashModule /> },
         { title: 'Engines', icon: <EngineSVG />, route: '/engines' },
-        { title: 'Settings', icon: <SettingsSVG />,route: ''},
+        { title: 'Settings', icon: <SettingsSVG />, route: '', component: <></> },
     ];
     const [selectedTabIndex, setSelectedTabIndex] = useState(0);
 
@@ -25,6 +31,13 @@ const NavPanel = () => {
         if (tab.route.length > 0) {
             router.push(tab.route);
         }
+        if (tab.component) {
+            setDashboardLoading(true);
+
+            setTimeout(() => setDashboardLoading(false), 1200);
+
+            setDashboard(tab.component);
+        }
     };
 
     const handleLogout = () => {
@@ -32,7 +45,6 @@ const NavPanel = () => {
         // delete cookie
 
         // fetch logout endpoint to destroy token
-
 
     };
 

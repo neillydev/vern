@@ -3,19 +3,33 @@
 import React, { useEffect, useState } from 'react';
 import Loading from '../Loading/Loading';
 import NavPanel from './NavPanel';
+import DashModule from './DashModule';
 
 import styles from './Main.module.css';
 
 const Main = () => {
   const [loading, setLoading] = useState(true);
+  const [dashboardLoading, setDashboardLoading] = useState(true);
+  const [dashboard, setDashboard] = useState(<DashModule />);
 
   useEffect(() => {
-    const fakeLoad = async () => {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setLoading(false);
+    /**
+     * Fetch dashboard data
+     * Must fetch:
+     *  # Engine Data
+     *  # Available resource data (Tokens, Engines, etc)
+     *  # Balance data (Current balance, payments made, etc)
+     *  # Usage Data
+     * 
+     */
+    const fakeLoad = async (stateDispatch: React.Dispatch<React.SetStateAction<boolean>>, timeout: number) => {
+      await new Promise(resolve => setTimeout(resolve, timeout));
+      stateDispatch(false);
     };
 
-    fakeLoad();
+    fakeLoad(setLoading, 2000).then(() => {
+      fakeLoad(setDashboardLoading, 2000);
+    });
   }, []);
 
   return (
@@ -27,9 +41,14 @@ const Main = () => {
           </div>
           :
           <div className={`${styles.mainWrapper} flex w-full`}>
-            <NavPanel />
+            <NavPanel setDashboardLoading={setDashboardLoading} setDashboard={setDashboard} />
             <div className={`${styles.mainPanelWrapper} w-full h-full`}>
-              
+              {dashboardLoading ?
+                <div className={`${styles.loadingWrapperDash} ${styles.loadingWrapperDash} flex w-full h-full justify-center items-center`}>
+                  <Loading color='#2f1d70' />
+                </div>
+                :
+                dashboard}
             </div>
           </div>
       }
