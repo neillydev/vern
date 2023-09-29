@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 import HomeSVG from '@/../public/icons/home.svg';
@@ -10,14 +11,21 @@ import SettingsSVG from '@/../public/icons/settings.svg';
 import styles from './NavPanel.module.css';
 
 const NavPanel = () => {
+    const router = useRouter();
 
     const tabs = [
         { title: 'Home', icon: <HomeSVG />, route: '' },
-        { title: 'Engines', icon: <EngineSVG />, route: '' },
+        { title: 'Engines', icon: <EngineSVG />, route: '/engines' },
         { title: 'Settings', icon: <SettingsSVG />,route: ''},
     ];
     const [selectedTabIndex, setSelectedTabIndex] = useState(0);
 
+    const handleTabSelect = (tab: any, index: number) => {
+        setSelectedTabIndex(index);
+        if (tab.route.length > 0) {
+            router.push(tab.route);
+        }
+    };
 
     const handleLogout = () => {
 
@@ -44,7 +52,7 @@ const NavPanel = () => {
                             <li
                             key={i}  
                             className={`${styles.navItem} ${selectedTabIndex === i ? styles.navItemSelected : styles.navItemUnselected }`}
-                            onClick={() => setSelectedTabIndex(i)}>
+                            onClick={() => handleTabSelect(tab, i)}>
                                 {tab.icon}
                                 <span className={`${styles.navItemTitle}`}>{tab.title}</span>
                             </li>
