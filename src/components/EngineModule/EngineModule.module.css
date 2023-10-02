@@ -1,0 +1,39 @@
+.eModContainer {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.eModWrapper {
+    width: 75px;
+    height: 75px;
+    background-color: rgb(88 84 154);
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgb(127, 122, 192) 0px 0px 0px 2px;
+}
+
+.eModWrapper {
+    margin-right: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eModWrapper > svg {
+    stroke: white;
+    width: 40px;
+    height: 40px;
+}
+
+.eModHeader > h1 {
+    color: rgba(255, 255, 255);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.eModHeader > h3 {
+    margin-top: 4px;
+    color: rgba(239, 237, 253, 0.7);
+    font-size: 12px;
+    font-weight: 500;
+}
