@@ -9,7 +9,21 @@ type ModalProps = {
 };
 
 const Modal = ({ handleCloseModal }: ModalProps) => {
+  const [engineName, setEngineName] = useState();
   const [prompt, setPrompt] = useState();
+
+  const handleChangeEngineName = (e: any) => {
+    setEngineName(e.target.value);
+  };
+
+  const handleChangePrompt = (e: any) => {
+    setPrompt(e.target.value);
+  };
+
+  const handleCreateEngine = () => {
+    
+  };
+
   return (
     <div className={`${styles.modalContainer}`}>
       <div className={`${styles.modalBg}`} onClick={handleCloseModal} />
@@ -22,7 +36,7 @@ const Modal = ({ handleCloseModal }: ModalProps) => {
             Engine Name
           </h2>
           <div className={`${styles.modalInputWrapper}`}>
-            <input type="text" placeholder='Enter a name' className={`${styles.modalInput}`} />
+            <input value={engineName} onChange={handleChangeEngineName} type="text" placeholder='Enter a name' className={`${styles.modalInput}`} />
           </div>
           <h2 className={`${styles.modalHeader}`}>
             Enter a prompt
@@ -30,12 +44,12 @@ const Modal = ({ handleCloseModal }: ModalProps) => {
           <div className={`${styles.moduleContainer}`}>
             <div className={`${styles.moduleWrapper}`}>
               <span className={`${styles.moduleText}`}>
-                <textarea name="prompt" id="prompt" placeholder={'I want an AI engine that...'} />
+                <textarea value={prompt} onChange={handleChangePrompt} name="prompt" id="prompt" placeholder={'I want an AI engine that...'} />
               </span>
             </div>
           </div>
           <div className={`${styles.modalFooter}`}>
-            <Btn content='Create' />
+            <Btn content='Create' handleCreateEngine={handleCreateEngine} />
           </div>
         </div>
       </div>
