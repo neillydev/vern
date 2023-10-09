@@ -1,0 +1,41 @@
+.dropdownContainer {
+    position: absolute;
+    top: 85px;
+    background-color: rgb(32, 30, 70);
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgb(101, 98, 146) 0px 0px 0px 1.5px;
+    border-radius: 4px;
+    height: fit-content;
+    cursor: auto;
+    animation: zoomIn 0.25s ease-in-out forwards;
+}
+
+.dropdownList {
+    padding: 10px 8px;
+}
+
+.dropdownItem {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 4px 8px;
+    text-wrap: nowrap;
+}
+
+.dropdownItem > svg {
+    margin-right: 10px;
+    stroke: rgb(226, 226, 226);
+}
+
+.separator {
+    border-bottom: 1px solid rgb(101, 98, 146);
+    margin: 10px auto;
+}
+
+.dropdownItem:hover {
+    background-color: rgb(101, 98, 146);
+}
