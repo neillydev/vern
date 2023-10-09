@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    position: relative;
 }
 
 .eModWrapper {
@@ -36,4 +37,14 @@
     color: rgba(239, 237, 253, 0.7);
     font-size: 12px;
     font-weight: 500;
+}
+
+.stateActive {
+    color: rgb(116, 255, 116) !important;
+}
+.stateInactive {
+    color: rgb(255, 95, 95) !important;
+}
+.stateNR {
+    color: rgba(239, 237, 253, 0.7) !important;
 }
